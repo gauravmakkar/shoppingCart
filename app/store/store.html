@@ -1,0 +1,52 @@
+﻿<div class="row">
+    <div class="col-sm-12 ">
+        <div class="col-sm-12">
+            <div class="col-sm-4">
+                <h1>Xebia Store</h1>
+            </div>
+            <div class="col-sm-3 col-sm-offset-5">
+                <div style="margin-top:20px;">
+                    <input placeholder="Search Item..." class="form-control" ng-model="search">
+                </div>
+            </div>
+
+        </div>
+
+
+        <table class="table table-bordered">
+            <tr class="well">
+                <td style="text-align: right" class="tdRight" colspan="4">
+                    <span style="text-align: left"><b>Total {{cart.getTotalCount()}}</b> items, <b>{{cart.getTotalPrice() | currency:'&#8377'}}</b></span>
+
+                    <a ng-disabled="cart.getTotalCount() < 1" href="#/cart">Go To The Cart</a>
+                </td>
+            </tr>
+            <tr ng-repeat="product in store.products | orderBy:'name' | filter:search">
+                <td class="tdCenter" style="text-align: center"><img height="16" width="16"
+                                                                     ng-src="https://image.flaticon.com/teams/new/1-freepik.jpg"
+                                                                     alt="{{product.name}}"/></td>
+                <td>
+                    <b data-ng-bind="product.name"></b><br/>
+                    <span data-ng-bind="product.description"></span>
+                </td>
+                <td class="tdRight">
+                    <span data-ng-bind="product.price | currency:'&#8377'"></span>
+                </td>
+                <td class="tdCenter" style="text-align: center">
+                    <a href="" ng-click="cart.addItem(product.id, product.name, product.price, 1)">
+                        <img title="Add to Cart" height="16" width="16"
+                             ng-src="{{cart.getTotalCount(product.id)>0?'http://www.iconsdb.com/icons/preview/caribbean-blue/plus-5-xxl.png':'https://cdn3.iconfinder.com/data/icons/shopping-2/256/Add_to_Cart-512.png'}}">
+                    </a>
+                </td>
+            </tr>
+            <tr class="well">
+                <td style="text-align: right" class="tdRight" colspan="4">
+                    <span style="text-align: left"><b>Total {{cart.getTotalCount()}}</b> items, <b>{{cart.getTotalPrice() | currency:'&#8377'}}</b></span>
+
+                    <a ng-disabled="cart.getTotalCount() < 1" href="#/cart">Go To The Cart</a>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>
