@@ -37,3 +37,8 @@ npm start
 Now browse to the app at [`http://localhost:8000/#/store`].
 
 
+### TODOS
+1. Remove inline CSS from the Pages
+2. Beautification of the pages.
+3. Minification/Concatenation of resources using Gulp.
+
